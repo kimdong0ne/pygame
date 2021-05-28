@@ -15,10 +15,10 @@ screenHeight = 640  # 세로크기
 screen = pygame.display.set_mode((screenWidth, screenHeight))  # 가로, 세로
 
 # 배경이미지
-background = pygame.image.load("C:\\Users\\82104\\Desktop\\pygame\\이미지\\무인도.png")
+background = pygame.image.load('C:\\Users\\82104\\Desktop\\pygame\\이미지\\무인도.png')
 
 # 캐릭터
-character = pygame.image.load("C:\\Users\\82104\\Desktop\\pygame\\이미지\\사람.png")
+character = pygame.image.load('C:\\Users\\82104\\Desktop\\pygame\\이미지\\사람.png')
 characterSize = character.get_rect().size  # img크기 불러옴
 characterWidth = characterSize[0]
 characterHeight = characterSize[1]
@@ -36,16 +36,16 @@ characterSpeed = 0.6
 randomNumber = 30
 poSpeed = 10
 
-# 적
-enemy = pygame.image.load("C:\\Users\\82104\\Desktop\\pygame\\이미지\\돌.png")
+# 돌
+enemy = pygame.image.load('C:\\Users\\82104\\Desktop\\pygame\\이미지\\돌.png')
 enemySize = enemy.get_rect().size
 enemyWidth = enemySize[0]
 enemyHeight = enemySize[1]
-enemyXpos = 200
-enemyYpos = 100
+enemyXpos = 0
+enemyYpos = enemyHeight
 
 # Title
-pygame.display.set_caption("무인도에서 살아남기")
+pygame.display.set_caption('무인도에서 살아남기')
 
 # 폰트 정의
 game_font = pygame.font.Font(None, 40)  # 폰트, 크기
