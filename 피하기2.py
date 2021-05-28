@@ -20,8 +20,8 @@ stone = pygame.image.load("C:\\Users\\82104\\Desktop\\pygame\\이미지\\새돌.
 stone_size = stone.get_rect().size
 stone_width = stone_size[0]
 stone_height = stone_size[1]
-stone_xpos = 200
-stone_ypos = 100
+stone_xpos = 0
+stone_ypos = stone_height
 
 start_ticks = pygame.time.get_ticks()
 
@@ -60,7 +60,7 @@ while _running:  #
             character_ypos = screen_height - character_height
         if stone_ypos >= screen_height + 70 or stone_ypos == 70:
             stone_ypos = stone_height
-            poo_xpos = random.uniform(0, screen_width - character_width)
+            stone_xpos = random.uniform(0, screen_width - character_width)
 
         stone_ypos += stone_speed
         stone_speed += 0.01
