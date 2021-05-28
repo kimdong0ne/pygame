@@ -10,13 +10,15 @@ screen_height = 640
 screen = pygame.display.set_mode((screen_width, screen_height))
 
 character = pygame.image.load("C:\\Users\\82104\\Desktop\\pygame\\이미지\\사람.png")
+character = pygame.transform.scale(character, (50, 50))
 character_size = character.get_rect().size
 character_width = character_size[0]
 character_height = character_size[1]
 character_xpos = screen_width / 2 - character_width / 2
 character_ypos = screen_height - character_height
 
-stone = pygame.image.load("C:\\Users\\82104\\Desktop\\pygame\\이미지\\새돌.png")
+stone = pygame.image.load("C:\\Users\\82104\\Desktop\\pygame\\이미지\\돌.png")
+stone = pygame.transform.scale(stone, (50, 50))
 stone_size = stone.get_rect().size
 stone_width = stone_size[0]
 stone_height = stone_size[1]
