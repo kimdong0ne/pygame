@@ -25,11 +25,20 @@ stone_height = stone_size[1]
 stone_xpos = 0
 stone_ypos = stone_height
 
+fruit = pygame.image.load("C:\\Users\\82104\\Desktop\\pygame\\이미지\\바나나.png")
+fruit = pygame.transform.scale(fruit, (50, 50))
+fruit_size = fruit.get_rect().size
+fruit_width = fruit_size[0]
+fruit_height = fruit_size[1]
+fruit_xpos = 0
+fruit_ypos = fruit_height
+
 start_ticks = pygame.time.get_ticks()
 
 game_font = pygame.font.Font(None, 40)
 
-stone_speed = 1
+stone_speed = 1.1
+fruit_speed = 1
 clock = pygame.time.Clock()
 character_speed = 0.5
 to_x = 0
@@ -63,9 +72,14 @@ while _running:  #
         if stone_ypos >= screen_height + 70 or stone_ypos == 70:
             stone_ypos = stone_height
             stone_xpos = random.uniform(0, screen_width - character_width)
+        if fruit_ypos >= screen_height + 70 or fruit_ypos == 70:
+            fruit_ypos = fruit_height
+            fruit_xpos = random.uniform(0, screen_width - character_width)
 
         stone_ypos += stone_speed
-        stone_speed += 0.01
+        stone_speed += 0.02
+        fruit_ypos += fruit_speed
+        fruit_speed += 0.01
 
         character_rect = character.get_rect()
         character_rect.left = character_xpos
@@ -74,6 +88,10 @@ while _running:  #
         stone_rect = character.get_rect()
         stone_rect.left = stone_xpos
         stone_rect.top = stone_ypos
+
+        fruit_rect = character.get_rect()  #
+        fruit_rect.left = fruit_xpos  #
+        fruit_rect.top = fruit_ypos  #
 
         if character_rect.colliderect(stone_rect):
             running = False
@@ -85,14 +103,15 @@ while _running:  #
         screen.blit(background, (0, 0))
         screen.blit(character, (character_xpos, character_ypos))
         screen.blit(stone, (stone_xpos, stone_ypos))
+        screen.blit(fruit, (fruit_xpos, fruit_ypos))
         screen.blit(timer, (10, 10))
         pygame.display.update()
 
     score_font = pygame.font.Font(None, 50)  #
     text = score_font.render("Your score is", True, (255, 255, 255))  #
-    text_rect = text.get_rect()  #
-    timer_rect = timer.get_rect()  #
-    screen.fill((0, 0, 0))  #
+    text_rect = text.get_rect()
+    timer_rect = timer.get_rect()
+    screen.fill((0, 0, 0))
     screen.blit(timer, (10, 50))  #
     screen.blit(text, (10, 10))  #
     pygame.display.update()  #
